@@ -1,0 +1,13 @@
+
+.button {
+  width: fit-content;
+  background-color: rgb(44, 172, 172);
+  color: black;
+  border-radius: 8px;
+  padding: 5px;
+
+  &:hover {
+    background-color: rgb(38, 138, 138);
+    cursor: pointer;
+  }
+}
