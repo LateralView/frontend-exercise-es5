@@ -4,15 +4,29 @@
 var AlbumsAPI = (function(apiUtils) {
   
   /**
-   * Authenticate into the application
-   * @param {string} email - Email to log into the application
-   * @param {string} password - Password to log into the application
+   * Get albums from backend
+   * @param {string} ? - ?
+   * 
+   *  *************
+   *  Usage Example
+   *  *************
+   * 
+   *  AlbumsAPI.getAlbums()
+        .then(function(response){
+          if (response.ok) {
+            response.json().then(function(data) {
+              console.log(data);
+            })
+          } else {
+            console.log('There was an error searching albums. Error status = ', response.status)
+          }
+        })
    */
   var getAlbums = function() {
-    return fetch(apiUtils.API_URL + "/search?q=" + 'La vela puerca', {
+    return fetch(apiUtils.API_URL + "/search?q=" + 'AC DC', {
       method: apiUtils.METHODS.GET,
       headers: apiUtils.HeaderFactory(),
-      // body: JSON.stringify({ email: email, password: password })
+      // body: JSON.stringify({ bodyAttr: email, password: password })
     })
   }
 

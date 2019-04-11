@@ -10,6 +10,8 @@ var HomePage = (function($, albumsAPI) {
      * Initializes all elements events for user interactions.
      */
     InitializeEvents: function() {
+
+      // Search button click handler.
       $('#search').on('click', function() {
         albumsAPI.getAlbums()
           .then(function(result){
@@ -22,6 +24,7 @@ var HomePage = (function($, albumsAPI) {
             }
           })
       })
+
     }
 
   }

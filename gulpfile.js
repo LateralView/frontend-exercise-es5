@@ -20,23 +20,29 @@ const paths = {
     dest: `${assetsFolder}/styles/`
   },
   scripts: {
-    src: [`${jsFolder}/lib/*.js`, `${jsFolder}/api/Utils.js`, `${jsFolder}/api/Albums.js`, `${jsFolder}/pages/*.js`, `${jsFolder}/main.js`],
+    src: [
+      // External Scripts
+      `${jsFolder}/lib/*.js`,
+      // Api scripts
+      `${jsFolder}/api/Utils.js`,
+      `${jsFolder}/api/Albums.js`,
+      // Pages scripts
+      `${jsFolder}/pages/*.js`,
+      // Main Entry script
+      `${jsFolder}/main.js`],
     dest: `${assetsFolder}/scripts/`
   }
 };
 
-/* Not all tasks need to use streams, a gulpfile is just another node program
- * and you can use all packages available on npm, but it must return either a
- * Promise, a Stream or take a callback and call it
+/* 
+ * Cleans the assets folder
  */
 function clean() {
-  // You can use multiple globbing patterns as you would with `gulp.src`,
-  // for example if you are using del 2.0 or above, return its promise
   return del([ 'assets' ]);
 }
  
 /*
- * Define our tasks using plain functions
+ * Compiles the scss files into a single css and minifies it.
  */
 function styles(done) {
   return gulp.src(paths.styles.src)
@@ -51,7 +57,9 @@ function styles(done) {
     .on('end', done);
 }
 
- 
+/**
+ * Concats all js files and minifies them into a single bundled .js
+ */
 function scripts() {
   return gulp.src(paths.scripts.src, { sourcemaps: true })
     .pipe(uglify())
@@ -59,11 +67,17 @@ function scripts() {
     .pipe(gulp.dest(paths.scripts.dest));
 }
  
+/**
+ * Watches for changes on the scss and js files to rebuild.
+ */
 function watch() {
   gulp.watch('./src/sass/**.scss', scripts);
   gulp.watch(paths.styles.src, styles);
 } 
 
+/**
+ * Serves the app locally.
+ */
 function serve() {
   connect.server({
     root: 'www',
