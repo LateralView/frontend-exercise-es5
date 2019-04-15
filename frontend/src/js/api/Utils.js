@@ -1,5 +1,9 @@
+/**
+ * Utils for Api Handlers
+ */
 var API_UTILS = (function() {
 
+  // API URL used to retrieve (and push) data from the backend
   var API_URL = 'http://localhost:5000'
 
   /**
