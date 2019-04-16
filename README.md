@@ -17,9 +17,10 @@ Basically, you'll need to connect to a backend API to be able to do album search
 show the current comments and allow the user to put a comment on a specific album. 
 The application **should be fully responsive**.
 
-### How to run
-
 ### Coding
+
+### Frontend
+
 #### Styles
 Styles are defined using SASS, the extension of CSS to write reusable and better structured files. To add styles find the appropriate file under `src/sass/` or create partials (`_partial-name.scss`) accordingly. Remember when adding partial files you will need to add them to the `src/main.scss` file.
 
