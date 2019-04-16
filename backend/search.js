@@ -18,7 +18,6 @@ router.options('*', cors())
 router.get('/', async (req, res) => {
   // const token = req.headers['x-access-token']
   const token = await authHelper.getToken()
-  console.log('OTKEN', token)
   if (!token) return res.status(401).send('Couldn\'t get Spotify\'s token')
   const authStr = 'Bearer '.concat(token)
   if (req.query.q && req.query.q.length > 3) {
