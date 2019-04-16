@@ -7,7 +7,6 @@ module.exports = {
   getToken: async () => {
     const clientId = process.env.SPOTIFY_CLIENT_ID
     const clientSecret = process.env.SPOTIFY_CLIENT_SECRET
-    console.log(`Creds: ${clientId} - ${clientSecret}`)
     const p = Buffer.from(`${clientId}:${clientSecret}`).toString('base64')
     let response
     try {
