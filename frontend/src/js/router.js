@@ -47,7 +47,6 @@ Router.prototype = {
     },
     goToRoute: function (route) {
         (function(scope) { 
-            console.log('pepepepe', route)
             var url = 'views/' + route.htmlName,
                 xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
