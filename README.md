@@ -22,10 +22,22 @@ The application **should be fully responsive**.
 ### Frontend
 
 #### Styles
-Styles are defined using SASS, the extension of CSS to write reusable and better structured files. To add styles find the appropriate file under `src/sass/` or create partials (`_partial-name.scss`) accordingly. Remember when adding partial files you will need to add them to the `src/main.scss` file.
+Styles are defined using SASS, the extension of CSS to write reusable and better structured files.
+To add styles find the appropriate file under `src/sass/` or create partials (`_partial-name.scss`) accordingly.
+Remember when adding partial files you will need to add them to the `src/main.scss` file.
+`sass/pages` is the directory you should use to define the styles for each view.
 
 #### JS
 Scripts are written following the module pattern. 
+
+### Usage
+The file `frontend/src/js/main.js` is the entry point of the application. Here you can define the routes for each view.
+We created a `about` route with it's view as an example. The first parameter is the route name, then the view html filename
+(all views are under `www/views` directory). The third parameter is for the default route, and the last one is the callback
+that will be called after the view is loaded into the DOM (here you can set the handler which will be executed for that view).
+
+We've provided an example handler in `src/js/pages/home.js` for the home page. You should have one handler for each view.
+
 
 #### Bundling
 In order to compile the `SCSS` files into css, bundle all js files, and minify them we use the automating tool `Gulp`. Remember to add your new JS files into the bundling sources (`paths > script > src` in `gulpfile.js`).
