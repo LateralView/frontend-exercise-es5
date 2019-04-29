@@ -28,8 +28,12 @@ const paths = {
       `${jsFolder}/api/Albums.js`,
       // Pages scripts
       `${jsFolder}/pages/*.js`,
+      // routes
+      `${jsFolder}/route.js`,
+      `${jsFolder}/router.js`,
       // Main Entry script
-      `${jsFolder}/main.js`],
+      `${jsFolder}/main.js`
+    ],
     dest: `${assetsFolder}/scripts/`
   }
 };
